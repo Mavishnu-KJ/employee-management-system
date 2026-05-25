@@ -345,6 +345,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         //delete
         employeeRepository.delete(existingEmployee); // delete returns void
+        logger.info("deleteEmployeeById, deleted the record for employeeId : {}", id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteAllEmployees(){
+        logger.info("deleteAllEmployees");
+
+        //delete all
+        employeeRepository.deleteAll();
+        logger.info("deleteAllEmployees, deleted all records");
+
     }
 
     @Override

@@ -165,6 +165,15 @@ public class EmployeeController {
         return ResponseEntity.noContent().build(); //204 no content
     }
 
+    @DeleteMapping("/deleteAllEmployees")
+    ResponseEntity<HttpStatus> deleteAllEmployees(){
+        logger.info("deleteAllEmployees");
+
+        employeeService.deleteAllEmployees();
+
+        return ResponseEntity.noContent().build(); //204 no content
+    }
+
     //eg. url : http://localhost:8080/api/employees/getAllEmployeesWithPagination?page=0&size=5
     //eg. url : http://localhost:8080/api/employees/getAllEmployeesWithPagination
     //eg. url : http://localhost:8080/api/employees/getAllEmployeesWithPagination?page=1&size=5

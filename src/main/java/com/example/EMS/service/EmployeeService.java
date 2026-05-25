@@ -23,6 +23,7 @@ public interface EmployeeService {
     List<EmployeeResponseDto> updateEmployeeByName(EmployeeRequestDto employeeRequestDto, String name);
 
     void deleteEmployeeById(Long id);
+    void deleteAllEmployees();
 
     Page<EmployeeResponseDto> getAllEmployeesWithPagination(Pageable pageable);
     Page<EmployeeResponseDto> searchEmployeesWithPagination(String name, Integer salary, String department, String email, Pageable pageable);

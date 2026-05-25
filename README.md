@@ -111,9 +111,10 @@ A **full-featured RESTful API** built with Spring Boot for managing employees. I
 08. /updateEmployeeById/{id}
 09. /updateEmployeeByName/{name}
 10. /deleteEmployeeById/{id}
-11. /getAllEmployeesWithPagination
-12. /searchEmployeesWithPagination
-13. /searchEmployeesWithPagination1
+11. /deleteAllEmployees
+12. /getAllEmployeesWithPagination
+13. /searchEmployeesWithPagination
+14. /searchEmployeesWithPagination1
 
 **@PostMapping("/addEmployee")
 public ResponseEntity<EmployeeResponseDto> addEmployee(@Valid @RequestBody EmployeeRequestDto employeeRequestDto)**
@@ -212,6 +213,14 @@ public ResponseEntity<HttpStatus> deleteEmployeeById(@PathVariable("id") Long id
 - => Sample url : http://localhost:8080/api/employees/deleteEmployeeById/4
 - => Since it is deleting based on id (ie id is primary key, unique), It will delete exactly one entry at a time
 - => Remember we need to throw ResourceNotFoundException if the given id does not exist
+- => Since its DeleteMapping, HttpStatus should be 204 - No content
+
+**@DeleteMapping("/deleteAllEmployees")
+public ResponseEntity<HttpStatus> deleteAllEmployees()**
+
+- => url : http://localhost:8080/api/employees/deleteAllEmployees
+- => It will delete all the employee records in the repository
+- => Remember even if deleted all the records, on new insert the Id will be continued from where they left. Example if 10 records inserted, deleted all, then again inserting, those Id will start from 11, 12, ..
 - => Since its DeleteMapping, HttpStatus should be 204 - No content
 
 **@GetMapping("/getAllEmployeesWithPagination")
