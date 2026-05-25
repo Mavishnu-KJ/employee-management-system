@@ -93,7 +93,7 @@ A **full-featured RESTful API** built with Spring Boot for managing employees. I
 
 - Other Important Folders/Files :
 
-- employeeManagementSystem/
+- employee-management-system/
 - ├──src/main/resources/
 - │   - └── application.properties
 - │   - └── application-test.properties
